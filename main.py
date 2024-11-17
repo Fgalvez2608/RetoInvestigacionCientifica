@@ -1,6 +1,5 @@
 # 1. Funcion para registrar experimento
 def registrarExperimento(listaExperimentos):
-    print("Registrar experimento")
     pass
 
 # 2. Funcion para visualizar resultados de los experimentos
