@@ -26,6 +26,9 @@ def generarReporte(listaExperimentos):
 def menuPrincipal():
     pass
 
+if __name__ == "__main__": # linea de codigo que ejecuta la funcion principal
+    menuPrincipal()
+
 
 
 
