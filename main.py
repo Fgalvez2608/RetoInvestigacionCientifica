@@ -43,15 +43,50 @@ def registrarExperimento(listaExperimentos):
 
 # 2. Funcion para visualizar resultados de los experimentos
 def visualizarResultados(listaExperimentos):
-    pass
+    print(" ------ VISUALIZAR EXPERIMENTOS ------")
+    if not listaExperimentos: #linea de codigo que verifica si la lista experimentos esta vacia
+        print("No hay experimentos registrados.")
+        return
+    tablaExperimentos = PrettyTable() #Variable de tipo PrettyTable para almacenar los datos de cada experimento registrado por el usuario 
+    tablaExperimentos.field_names = ["NOMBRE", "FECHA", "CATEGORIA", "DATOS"] #columnas de la tabla
+    for experimento in listaExperimentos: #bucle para recorrer la lista experimentos
+        tablaExperimentos.add_row([experimento.nombre, experimento.fecha.strftime("%d/%m/%Y"), experimento.categoria, experimento.resultados], divider=True) #linea de codigo que agrega los datos de cada experimento a la tabla en sus respectivas columnas
+    print(tablaExperimentos) #muestra la tabla en la consola
+    print("")
 
 # 3. Funcion para eliminar experimento
 def eliminarExperimento(listaExperimentos):
-    pass
+    print(" ------ ELIMINAR EXPERIMENTO ------")
+    if not listaExperimentos: #linea de codigo que verifica si la lista experimentos esta vacia
+        print("No hay experimentos registrados.")
+        return
+    nombre = input("Ingrese el nombre del experimento que desea eliminar: ") #Variable que almacena el nombre del experimento que desea eliminar
+    for experimento in listaExperimentos: #bucle para recorrer la lista experimentos
+        if experimento.nombre == nombre: #linea de codigo que verifica si el nombre del experimento que desea eliminar es igual al nombre de un experimento registrado
+            listaExperimentos.remove(experimento) #linea de codigo que elimina el experimento de la lista experimentos
+            print("Experimento eliminado exitosamente.")
+            print("")
+            return
+    print("Experimento no encontrado.")
+    print("")
 
 # 4. Funcion para calculo estadistico basico (PROMEDIO - VALOR MAXIMO - VALOR MINIMO).
 def analisisResultados(listaExperimentos):
-    pass
+    print(" ------ ANALISIS EXPERIMENTOS ------")
+    if not listaExperimentos:
+        print("No hay experimentos registrados.")
+        return
+    
+    tablaAnalisis = PrettyTable() #Variable de tipo PrettyTable para almacenar los datos de cada experimento registrado por el usuario
+    tablaAnalisis.field_names = ["NOMBRE", "FECHA", "CATEGORIA", "PROMEDIO", "DATO MAXIMO", "DATO MINIMO"] #columnas de la tabla
+    for experimento in listaExperimentos: #bucle para recorrer la lista experimentos
+        promedio = statistics.mean(experimento.resultados) # se usa la funcion mean de la libreria statistics para calcular el promedio de los datos del experimento
+        maximo = max(experimento.resultados) # se usa la funcion max de la libreria statistics para calcular el valor maximo de los datos del experimento
+        minimo = min(experimento.resultados) # se usa la funcion min de la libreria statistics para calcular el valor minimo de los datos del experimento
+        tablaAnalisis.add_row([experimento.nombre, experimento.fecha.strftime("%d/%m/%Y"), experimento.categoria, promedio, maximo, minimo], divider=True) # se usa la funcion add_row de la libreria prettytable para agregar los datos del experimento a la tabla
+
+    print(tablaAnalisis) # se muestra la tabla "tablaAnalisis" en la consola HAHAHAHH
+    print("")
 
 # 5. Funcion para comprar 2 o mas experimentos
 def compradorExperimentos(listaExperimentos):
