@@ -8,5 +8,6 @@ This repository is to track the fulfillment of challenge #1 of the devSenior pyt
 5. creación de la función "registrar Experimento" / creation of the "register Experiment" function.
 6. creación de las funciones "visualizar, eliminar y analizar experimentos" / creation of functions "view, delete and analyze experiments".
 7. creación de las funciones "generar informe y menú principal" / creation of the "generate report and main menu" functions.
+8. Pendiente terminar la funcion que compara experimentos / Pending to finish the function that compares experiments.
 
 

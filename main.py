@@ -90,7 +90,11 @@ def analisisResultados(listaExperimentos):
 
 # 5. Funcion para comprar 2 o mas experimentos
 def compradorExperimentos(listaExperimentos):
-    pass
+    print(" ------ COMPARACION DE EXPERIMENTOS ------")
+    if not listaExperimentos:
+        print("No hay experimentos registrados.")
+        return
+    
 
 # 6. Funcion para generar reporte con un archivo txt
 def generarReporte(listaExperimentos):
