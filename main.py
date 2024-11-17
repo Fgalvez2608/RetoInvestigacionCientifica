@@ -26,13 +26,3 @@ def generarReporte(listaExperimentos):
 # 7. Funcion para menu principal
 def menuPrincipal():
     pass
-
-
-
-
-
-
-
-
-
-
