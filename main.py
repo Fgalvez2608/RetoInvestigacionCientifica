@@ -1,3 +1,15 @@
+from datetime import datetime # importar la libreria datetime para darle formato a las fechas
+import statistics # importar la libreria statistics para usar la funcion media
+from prettytable import PrettyTable # importar la libreria prettytable para trabajar con tablas
+
+
+class Experimento:  #funcion de inicializacion o metodo constructor, para recibir toda la informacion que se quiera almacenar
+    def __init__(self, nombre, fecha, categoria, resultados):
+        self.nombre = nombre
+        self.fecha = fecha
+        self.categoria = categoria
+        self.resultados = resultados
+
 # 1. Funcion para registrar experimento
 def registrarExperimento(listaExperimentos):
     pass
