@@ -90,10 +90,46 @@ def analisisResultados(listaExperimentos):
 
 # 5. Funcion para comprar 2 o mas experimentos
 def compradorExperimentos(listaExperimentos):
-    print(" ------ COMPARACION DE EXPERIMENTOS ------")
+    print(" ------ COMPARADOR DE DATOS ------")
     if not listaExperimentos:
         print("No hay experimentos registrados.")
         return
+    
+    for experimento in listaExperimentos: #linea de codigo que recorre la lista experimentos e imprime el nombre de cada experimento
+        print(f"Experimento: {experimento.nombre}")
+    cantidadExperimentos = int(input("Ingrese la cantidad de experimentos que desea comparar: ")) #Variable que almacena la cantidad de experimentos que desea comparar
+    if cantidadExperimentos > len(listaExperimentos): #linea de codigo que verifica si la cantidad de experimentos que desea comparar es mayor a la cantidad de experimentos registrados
+        print("No hay suficientes experimentos registrados.")
+        return
+    
+    experimentosComparar = [] #Variable que almacena los experimentos que desea comparar
+    for i in range(cantidadExperimentos): #bucle para recorrer la cantidad de experimentos que desea comparar
+        experimento = input(f"Ingrese el nombre del experimento {i + 1}: ") #Variable que almacena el nombre del experimento que desea comparar
+        for exp in listaExperimentos: #bucle para recorrer la lista experimentos
+            if exp.nombre == experimento: #linea de codigo que verifica si el nombre del experimento que desea comparar es igual al nombre de un experimento registrado
+                experimentosComparar.append(exp) #linea de codigo que agrega el experimento a la lista experimentosComparar
+                break
+        else:
+            print("Experimento no encontrado.")
+            return
+    # se calcula el promedio, el valor maximo y el valor minimo de los datos de cada experimento
+    promediosComparar = [] #Variable que almacena los promedios de los experimentos que desea comparar
+    maximosComparar = [] #Variable que almacena los valores maximos de los experimentos que desea comparar
+    minimosComparar = [] #Variable que almacena los valores minimos de los experimentos que desea comparar
+    for experimento in experimentosComparar: #bucle para recorrer la lista experimentosComparar
+        promedio = statistics.mean(experimento.resultados) # se usa la funcion mean de la libreria statistics para calcular el promedio de los datos del experimento
+        valorMaximo = max(experimento.resultados) # se usa la funcion max de la libreria statistics para calcular el valor maximo de los datos del experimento
+        valorMinimo = min(experimento.resultados) # se usa la funcion min de la libreria statistics para calcular el valor minimo de los datos del experimento
+        maximosComparar.append(valorMaximo) # se agrega el valor maximo a la lista maximosComparar
+        minimosComparar.append(valorMinimo) # se agrega el valor minimo a la lista minimosComparar
+        promediosComparar.append(promedio) # se agrega el promedio a la lista promediosComparar
+
+    tablaComparar = PrettyTable() #Variable de tipo PrettyTable para almacenar los datos de cada experimento registrado por el usuario 
+    tablaComparar.field_names = ["NOMBRE", "PROMEDIO", "MAXIMO", "MINIMO"] #columnas de la tabla
+    for i in range(cantidadExperimentos): #bucle para recorrer la cantidad de experimentos que desea comparar
+        tablaComparar.add_row([experimentosComparar[i].nombre, promediosComparar[i], maximosComparar[i], minimosComparar[i]], divider=True) #linea de codigo que agrega los datos de cada experimento a la tabla en sus respectivas columnas
+    print(tablaComparar) #muestra la tabla en la consola
+    print("")
     
 
 # 6. Funcion para generar reporte con un archivo txt
