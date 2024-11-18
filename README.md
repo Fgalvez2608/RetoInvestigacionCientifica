@@ -11,5 +11,6 @@ This repository is to track the fulfillment of challenge #1 of the devSenior pyt
 8. Pendiente terminar la funcion que compara experimentos / Pending to finish the function that compares experiments.
 9. Creación función comparadora de datos. / creation of the data comparator function.
 10. Pendiente ajuste y mejoramiento del codigo. / Pending to adjust and improve the code.
+11. Arreglo de error en la función registrar experimento. / Bug fix in register experiment function.
 
 

@@ -31,11 +31,11 @@ def registrarExperimento(listaExperimentos):
     while resultados_str == "": #bucle para validar que los resultados no esten vacio
         print("ERROR!!! El campos resultados no puede estar vacio.")#mensaje de error
         resultados_str = input("Ingrese los resultados del experimento, un dato de otro separado por una coma ej (1,2,3,4): ")
-        try: #try y except para validar el formato de los datos
-                resultados = list(map(float, resultados_str.split(","))) #Variable que almacena los resultados del experimento ingresados por el usuario de tipo float, list para transformar el string en una lista de datos separados por coma ayudado por la funcion split y map para transformar los datos de la lista en float
-        except ValueError:
-            print("Formato de datos incorrecto. Por favor, ingrese una lista de números separados por comas.")
-            return
+    try: #try y except para validar el formato de los datos
+        resultados = list(map(float, resultados_str.split(","))) #Variable que almacena los resultados del experimento ingresados por el usuario de tipo float, list para transformar el string en una lista de datos separados por coma ayudado por la funcion split y map para transformar los datos de la lista en float
+    except ValueError:
+        print("Formato de datos incorrecto. Por favor, ingrese una lista de números separados por comas.")
+        return
     experimento = Experimento(nombre, fecha, categoria, resultados) #Variable que almacena los datos del experimento
     listaExperimentos.append(experimento) #linea de codigo que agrega los datos del experimento a la lista experimentos
     print("Experimento registrado exitosamente.")
@@ -96,7 +96,7 @@ def compradorExperimentos(listaExperimentos):
         return
     
     for experimento in listaExperimentos: #linea de codigo que recorre la lista experimentos e imprime el nombre de cada experimento
-        print(f"Experimento: {experimento.nombre}")
+        print(f"{experimento.nombre}")
     cantidadExperimentos = int(input("Ingrese la cantidad de experimentos que desea comparar: ")) #Variable que almacena la cantidad de experimentos que desea comparar
     if cantidadExperimentos > len(listaExperimentos): #linea de codigo que verifica si la cantidad de experimentos que desea comparar es mayor a la cantidad de experimentos registrados
         print("No hay suficientes experimentos registrados.")
@@ -155,7 +155,12 @@ def generarReporte(listaExperimentos):
 
 # 7. Funcion para menu principal
 def menuPrincipal():
-    listaExperimentos = [] #Variable de tipo lista que almacena experimentos
+    listaExperimentos = [ # Variable de tipo lista que almacena experimentos
+        Experimento("Experimento 1", datetime(2023, 10, 1), "Fisica", [10, 20, 30]),
+        Experimento("Experimento 2", datetime(2023, 10, 2), "Quimica", [15, 25, 35]),
+        Experimento("Experimento 3", datetime(2023, 10, 3), "Biologia", [12, 22, 32]),
+        Experimento("Experimento 4", datetime(2023, 10, 4), "Matematicas", [18, 28, 38])
+    ]
     
     while True: #bucle para repetir el menu principal
     
