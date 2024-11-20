@@ -12,5 +12,6 @@ This repository is to track the fulfillment of challenge #1 of the devSenior pyt
 9. Creación función comparadora de datos. / creation of the data comparator function.
 10. Pendiente ajuste y mejoramiento del codigo. / Pending to adjust and improve the code.
 11. Arreglo de error en la función registrar experimento. / Bug fix in register experiment function.
+12. Validación de cantidad dedatos en la función registrar experimento para su posterior analisis. / Data validation in the register experiment function for its subsequent analysis.
 
 

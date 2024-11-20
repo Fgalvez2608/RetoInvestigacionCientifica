@@ -33,6 +33,14 @@ def registrarExperimento(listaExperimentos):
         resultados_str = input("Ingrese los resultados del experimento, un dato de otro separado por una coma ej (1,2,3,4): ")
     try: #try y except para validar el formato de los datos
         resultados = list(map(float, resultados_str.split(","))) #Variable que almacena los resultados del experimento ingresados por el usuario de tipo float, list para transformar el string en una lista de datos separados por coma ayudado por la funcion split y map para transformar los datos de la lista en float
+        while len(resultados) < 3: #bucle para validar que la cantidad de datos ingresados sea mayor o igual a 3
+            print("ERROR!!! La cantidad de datos ingresados debe ser mayor o igual a 3 para que se puedan analizar.")
+            resultados_str = input("Ingrese los resultados del experimento, un dato de otro separado por una coma ej (1,2,3,4): ")
+            try:
+                resultados = list(map(float, resultados_str.split(",")))
+            except ValueError:
+                print("Formato de datos incorrecto. Por favor, ingrese una lista de números separados por comas.")
+                return
     except ValueError:
         print("Formato de datos incorrecto. Por favor, ingrese una lista de números separados por comas.")
         return
