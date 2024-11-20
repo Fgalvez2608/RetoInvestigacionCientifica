@@ -136,8 +136,41 @@ def generarReporte(listaExperimentos):  # Función para generar reporte con un a
     print('Informe generado en el archivo "reporte.txt" exitosamente')
 
 # 7. Funcion para menu principal
-def menuPrincipal():
-    pass
+def menu(listaExperimentos):  # Función para el menú principal
+    while True:
+        print("\nMenu de opciones:")
+        print("1. Agregar un experimento")
+        print("2. Ver experimentos registrados")
+        print("3. Eliminar un experimento")
+        print("4. Realizar un análisis de los experimentos")
+        print("5. Comparar 2 o más experimentos")
+        print("6. Generar informe de experimentos")
+        print("7. Salir")
+
+        opcion = int(input("Ingrese una opción (entre 1 y 7): "))
+
+        if opcion < 1 or opcion > 7:
+            print("Opción no válida, ingrese un número entre 1 y 7")
+        elif opcion == 1:
+            registrarExperimento(listaExperimentos)
+        elif opcion == 2:
+            visualizarResultados(listaExperimentos)
+        elif opcion == 3:
+            eliminarExperimento(listaExperimentos)
+        elif opcion == 4:
+            analisisResultados(listaExperimentos)
+        elif opcion == 5:
+            compradorExperimentos(listaExperimentos)
+        elif opcion == 6:
+            generarReporte(listaExperimentos)
+        elif opcion == 7:
+            print("¡Gracias por utilizar el programa!")
+            break
+
+if __name__ == "__main__":
+    listaExperimentos = []
+    menu(listaExperimentos)
+
 
 
 
