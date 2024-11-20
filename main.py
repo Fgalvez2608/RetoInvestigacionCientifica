@@ -89,7 +89,35 @@ def analisisResultados(listaExperimentos):  # Función para cálculo estadístic
 
 # 5. Funcion para comprar 2 o mas experimentos
 def compradorExperimentos(listaExperimentos):
-    pass
+    experimentos_a_comparar = []
+    while True:
+        print("\nSubmenú de comparación de experimentos")
+        print("1. Seleccionar experimento para comparar")
+        print("2. Comparar experimentos seleccionados")
+        print("3. Salir")
+        opcion = input("Ingrese la opción: ")
+        if opcion == "1":
+            print("\nLista de experimentos:")
+            for i, experimento in enumerate(listaExperimentos, start=1):
+                print(f"{i}. {experimento.nombre}")
+            seleccion = int(input("Ingrese el número del experimento a seleccionar: "))
+            experimentos_a_comparar.append(listaExperimentos[seleccion - 1])
+            print(f"Experimento '{listaExperimentos[seleccion - 1].nombre}' seleccionado para comparar")
+        elif opcion == "2":
+            if len(experimentos_a_comparar) < 2:
+                print("Debe seleccionar al menos dos experimentos para comparar")
+            else:
+                # Código para comparar los experimentos seleccionados
+                print("\nComparación de experimentos:")
+                for i, experimento in enumerate(experimentos_a_comparar, start=1):
+                    print(f"Experimento {i}: {experimento.nombre}")
+                    # Código para mostrar los resultados de la comparación
+                experimentos_a_comparar = []
+        elif opcion == "3":
+            break
+        else:
+            print("Opción inválida. Por favor, ingrese una opción válida.")
+
 
 # 6. Funcion para generar reporte con un archivo txt
 def generarReporte(listaExperimentos):
