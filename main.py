@@ -68,8 +68,24 @@ def eliminarExperimento(listaExperimentos):  # Función para eliminar experiment
     print(f'No se encontró el experimento {nombreExperimento}.')  # Mostrar un mensaje en caso de que no se encuentre el experimento.
 
 # 4. Funcion para calculo estadistico basico (PROMEDIO - VALOR MAXIMO - VALOR MINIMO).
-def analisisResultados(listaExperimentos):
-    pass
+def analisisResultados(listaExperimentos):  # Función para cálculo estadístico básico (PROMEDIO - VALOR MÁXIMO - VALOR MÍNIMO) de los resultados numéricos.
+    if not listaExperimentos:  # Verificar si la lista de experimentos está vacía.
+        print('No hay experimentos registrados.')
+        return
+
+    resultados = [resultado for experimento in listaExperimentos for resultado in experimento.resultados]  # Crear una lista de resultados
+
+    promedio = statistics.mean(resultados)  # Calcular el promedio de los resultados
+
+    maximo = max(resultados)  # Calcular el resultado numérico máximo
+
+    minimo = min(resultados)  # Calcular el resultado numérico mínimo
+
+    print(f'\nPromedio de resultados numéricos: {promedio:.2f}')  # Imprimir el promedio de resultados numéricos con 2 decimales
+
+    print(f'Resultado numérico máximo: {maximo:.2f}')  # Imprimir el resultado numérico máximo con 2 decimales
+
+    print(f'Resultado numérico mínimo: {minimo:.2f}')  # Imprimir el resultado numérico mínimo con 2 decimales
 
 # 5. Funcion para comprar 2 o mas experimentos
 def compradorExperimentos(listaExperimentos):
