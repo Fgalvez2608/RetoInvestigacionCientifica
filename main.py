@@ -134,6 +134,7 @@ def generarReporte(listaExperimentos):  # Función para generar reporte con un a
 
     print('Informe generado en el archivo "reporte.txt" exitosamente')
 
+
 def menu(listaExperimentos):  # Función para el menú principal
     while True:
         print("\nMenu de opciones:")
