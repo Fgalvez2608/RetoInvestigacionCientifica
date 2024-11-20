@@ -37,9 +37,19 @@ def registrarExperimento(listaExperimentos):  # Función que permite registrar u
 
 
 # 2. Funcion para visualizar resultados de los experimentos
-def visualizarResultados(listaExperimentos):
-    #trabajando
-    pass
+def visualizarResultados(listaExperimentos):  # Función para visualizar resultados de los experimentos
+    if not listaExperimentos:  # Verificar si la lista de experimentos está vacía.
+        print('No hay experimentos registrados.')
+        return
+
+    for i, experimento in enumerate(listaExperimentos, start=1):  # Iterar sobre la lista de experimentos y mostrar los resultados.
+        print(f'\n Experimento {i}:')
+        print(f' Nombre: {experimento.nombre}')  # Muestra nombre de experimento
+        print(f' Fecha de realización: {experimento.fechaRealizacion.strftime("%d/%m/%Y")}')  # Muestra fecha de realización
+        print(f' Categoría: {experimento.categoria}')  # Muestra la categoría del experimento
+        print(f' Resultados: {experimento.resultados}')  # Muestra la lista de resultados
+
+
 
 # 3. Funcion para eliminar experimento
 def eliminarExperimento(listaExperimentos):
