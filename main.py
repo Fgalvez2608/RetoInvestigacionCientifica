@@ -52,8 +52,20 @@ def visualizarResultados(listaExperimentos):  # Función para visualizar resulta
 
 
 # 3. Funcion para eliminar experimento
-def eliminarExperimento(listaExperimentos):
-    pass
+def eliminarExperimento(listaExperimentos):  # Función para eliminar experimento
+    if not listaExperimentos:  # Verificar si la lista de experimentos está vacía.
+        print('No hay experimentos registrados.')
+        return
+
+    nombreExperimento = input('Ingrese el nombre del experimento a eliminar: ')  # Variable que almacena el nombre del experimento ingresado.
+
+    for experimento in listaExperimentos:  # Iterar sobre la lista de experimentos y verificar si el nombre coincide.
+        if experimento.nombre.lower() == nombreExperimento.lower():  # Verificar si el nombre del experimento coincide.
+            listaExperimentos.remove(experimento)  # Eliminar el experimento de la lista.
+            print(f'El experimento {nombreExperimento} ha sido eliminado.')
+            return
+
+    print(f'No se encontró el experimento {nombreExperimento}.')  # Mostrar un mensaje en caso de que no se encuentre el experimento.
 
 # 4. Funcion para calculo estadistico basico (PROMEDIO - VALOR MAXIMO - VALOR MINIMO).
 def analisisResultados(listaExperimentos):
