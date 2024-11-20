@@ -4,6 +4,7 @@ def registrarExperimento(listaExperimentos):
 
 # 2. Funcion para visualizar resultados de los experimentos
 def visualizarResultados(listaExperimentos):
+    #trabajando
     pass
 
 # 3. Funcion para eliminar experimento
