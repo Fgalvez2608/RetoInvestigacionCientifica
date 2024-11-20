@@ -120,8 +120,20 @@ def compradorExperimentos(listaExperimentos):
 
 
 # 6. Funcion para generar reporte con un archivo txt
-def generarReporte(listaExperimentos):
-    pass
+def generarReporte(listaExperimentos):  # Función para generar reporte con un archivo txt
+    if not listaExperimentos:  # Verificar si la lista de experimentos está vacía.
+        print('No hay experimentos registrados.')
+        return
+
+    with open('reporte.txt', 'w') as archivo:  # Abrir un archivo llamado 'reporte.txt' en modo escritura.
+        for experimento in listaExperimentos:  # Iterar sobre cada experimento en la lista.
+            archivo.write(f'Experimento: {experimento.nombre}\n')  # Escribir el nombre del experimento en el archivo.
+            archivo.write(f'Fecha de realización: {experimento.fechaRealizacion.strftime("%d/%m/%Y")}\n')  # Escribir la fecha de realización del experimento en el archivo.
+            archivo.write(f'Categoría: {experimento.categoria}\n')  # Escribir la categoría del experimento en el archivo.
+            archivo.write(f'Resultados: {experimento.resultados}\n')  # Escribir los resultados del experimento en el archivo.
+            archivo.write('\n')  # Escribir una línea en blanco para separar los experimentos.
+
+    print('Informe generado en el archivo "reporte.txt" exitosamente')
 
 # 7. Funcion para menu principal
 def menuPrincipal():
