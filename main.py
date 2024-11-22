@@ -68,7 +68,7 @@ def eliminarExperimento(listaExperimentos):
     if not listaExperimentos: #linea de codigo que verifica si la lista experimentos esta vacia
         print("No hay experimentos registrados.")
         return
-    nombre = input("Ingrese el nombre del experimento que desea eliminar: ") #Variable que almacena el nombre del experimento que desea eliminar
+    nombre = input("Ingrese el nombre del experimento que desea eliminar: ").lower() #Variable que almacena el nombre del experimento que desea eliminar
     for experimento in listaExperimentos: #bucle para recorrer la lista experimentos
         if experimento.nombre == nombre: #linea de codigo que verifica si el nombre del experimento que desea eliminar es igual al nombre de un experimento registrado
             listaExperimentos.remove(experimento) #linea de codigo que elimina el experimento de la lista experimentos
