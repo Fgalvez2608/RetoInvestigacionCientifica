@@ -51,13 +51,13 @@ def registrarExperimento(listaExperimentos):
 
 # 2. Funcion para visualizar resultados de los experimentos
 def visualizarResultados(listaExperimentos):
-    print(" ------ VISUALIZAR EXPERIMENTOS ------")
+    print("          ------ VISUALIZAR EXPERIMENTOS ------")
     if not listaExperimentos: #linea de codigo que verifica si la lista experimentos esta vacia
         print("No hay experimentos registrados.")
         return
     tablaExperimentos = PrettyTable() #Variable de tipo PrettyTable para almacenar los datos de cada experimento registrado por el usuario 
     tablaExperimentos.field_names = ["NOMBRE", "FECHA", "CATEGORIA", "DATOS"] #columnas de la tabla
-    for experimento in listaExperimentos: #bucle para recorrer la lista experimentos
+    for experimento in listaExperimentos: #bucle para recorrer la lista experimentos y llena la tabla con los datos
         tablaExperimentos.add_row([experimento.nombre, experimento.fecha.strftime("%d/%m/%Y"), experimento.categoria, experimento.resultados], divider=True) #linea de codigo que agrega los datos de cada experimento a la tabla en sus respectivas columnas
     print(tablaExperimentos) #muestra la tabla en la consola
     print("")
