@@ -23,7 +23,7 @@ def registrarExperimento(listaExperimentos):
             break
         except ValueError: #mensaje de error
             print("Formato de fecha incorrecto. Por favor, ingrese una fecha válida en el formato DD/MM/AAAA.")
-    categoria = input("Ingrese la categoría del experimento: ").lower() #Variable que almacena la categoria del experimento y la funcion lower() lo convierte a minusculas
+    categoria = input("Ingrese la categoría del experimento (ej 'fisica', 'quimica', 'biologia'): ").lower() #Variable que almacena la categoria del experimento y la funcion lower() lo convierte a minusculas
     while categoria == "": #bucle para validar que la categoria no este vacio
         print("ERROR!!! El campo de categoria no puede estar vacio.")#mensaje de error
         categoria = input("Ingrese la categoría del experimento: ").lower()
