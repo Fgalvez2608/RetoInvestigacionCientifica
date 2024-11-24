@@ -106,10 +106,13 @@ def compradorExperimentos(listaExperimentos):
     for experimento in listaExperimentos: #linea de codigo que recorre la lista experimentos e imprime el nombre de cada experimento
         print(f"{experimento.nombre}")
     cantidadExperimentos = int(input("Ingrese la cantidad de experimentos que desea comparar: ")) #Variable que almacena la cantidad de experimentos que desea comparar
+    while cantidadExperimentos < 2: #bucle para validar que la cantidad de experimentos que desea comparar sea mayor o igual a 2
+        print("ERROR!!! La cantidad de experimentos que desea comparar debe ser mayor o igual a 2.")#mensaje de error
+        cantidadExperimentos = int(input("Ingrese la cantidad de experimentos que desea comparar: "))
     if cantidadExperimentos > len(listaExperimentos): #linea de codigo que verifica si la cantidad de experimentos que desea comparar es mayor a la cantidad de experimentos registrados
-        print("No hay suficientes experimentos registrados.")
+        print("ERROR!!! La cantidad de experimentos que deseas comparar sobrepasa la cantidad de experimentos registrados.")
         return
-    
+
     experimentosComparar = [] #Variable que almacena los experimentos que desea comparar
     for i in range(cantidadExperimentos): #bucle para recorrer la cantidad de experimentos que desea comparar
         experimento = input(f"Ingrese el nombre del experimento {i + 1}: ") #Variable que almacena el nombre del experimento que desea comparar
@@ -152,10 +155,10 @@ def generarReporte(listaExperimentos):
     with open("informeExperimentos.txt", "w") as archivo: #linea de codigo que abre el archivo "informeExperimentos.txt" en modo escritura
         for experimento in listaExperimentos:
             #escribir los detalles de cada experimento en el archivo
-            archivo.write(f"Nombre de la Tarea: {experimento.nombre}\n") # se escribe en el archivo el nombre del experimento
-            archivo.write(f"Fecha Limite: {experimento.fecha.strftime('%d/%m/%Y')}\n") # se escribe en el archivo la fecha del experimento
+            archivo.write(f"Nombre del experimento: {experimento.nombre}\n") # se escribe en el archivo el nombre del experimento
+            archivo.write(f"Fecha Ingresada: {experimento.fecha.strftime('%d/%m/%Y')}\n") # se escribe en el archivo la fecha del experimento
             archivo.write(f"Categoria: {experimento.categoria}\n") # se escribe en el archivo la categoria del experimento
-            archivo.write(f"Horas Dedicadas: {experimento.resultados}\n") # se escribe en el archivo los resultados del experimento
+            archivo.write(f"Datos: {experimento.resultados}\n") # se escribe en el archivo los resultados del experimento
             archivo.write("\n") # se escribe en el archivo un espacio en blanco
     
     print("Reporte generado exitosamente, como 'informeExperimentos.txt'.")#mensaje de confirmacion de que el reporte se genero correctamente
