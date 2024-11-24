@@ -12,6 +12,11 @@ class Experimento:  #funcion de inicializacion o metodo constructor, para recibi
 
 # 1. Funcion para registrar experimento
 def registrarExperimento(listaExperimentos):
+    """
+    Funcion para registrar un experimento en la lista de experimentos
+    El usuario debe ingresar el nombre del experimento, la fecha del experimento, la categoria del experimento y los resultados del experimento
+    La funcion va a validar que los datos ingresados sean correctos y va a guardar el experimento en la lista de experimentos
+    """
     nombre = input("Ingrese el nombre del experimento: ").lower() #Variable que almacena el nombre del experimento y la funcion lower() lo convierte a minusculas
     while nombre == "": #bucle para validar que el nombre no este vacio 
         print("El nombre del experimento no puede estar vacio.")#mensaje de error
@@ -51,6 +56,14 @@ def registrarExperimento(listaExperimentos):
 
 # 2. Funcion para visualizar resultados de los experimentos
 def visualizarResultados(listaExperimentos):
+    """
+    Función para mostrar los detalles de todos los experimentos registrados.
+    La tabla incluye columnas para el nombre, la fecha, la categoría y los datos del experimento.
+    Si no hay experimentos registrados, se muestra un mensaje indicando que la lista está vacía.
+    
+    Parámetros:
+    listaExperimentos (lista): una lista de objetos de experimento que se mostrarán.
+    """
     print("          ------ VISUALIZAR EXPERIMENTOS ------")
     if not listaExperimentos: #linea de codigo que verifica si la lista experimentos esta vacia
         print("No hay experimentos registrados.")
@@ -80,6 +93,10 @@ def eliminarExperimento(listaExperimentos):
 
 # 4. Funcion para calculo estadistico basico (PROMEDIO - VALOR MAXIMO - VALOR MINIMO).
 def analisisResultados(listaExperimentos):
+    """
+    Funcion para mostrar los resultados de cada experimento y sus calculosestadisticos (promedio, valor maximo, valor minimo) en una tabla.
+    """
+    
     print(" ------ ANALISIS EXPERIMENTOS ------")
     if not listaExperimentos:
         print("No hay experimentos registrados.")
@@ -98,6 +115,10 @@ def analisisResultados(listaExperimentos):
 
 # 5. Funcion para comprar 2 o mas experimentos
 def compradorExperimentos(listaExperimentos):
+    """
+    Funcion para comparar 2 o mas experimentos, mostrando una tabla con los resultados de cada experimento y sus estadisticos (promedio, valor maximo y valor minimo)
+    tambien valida que la cantidad de experimentos a comparar sea mayor o igual a 2
+    """
     print(" ------ COMPARADOR DE DATOS ------")
     if not listaExperimentos:
         print("No hay experimentos registrados.")
@@ -141,16 +162,21 @@ def compradorExperimentos(listaExperimentos):
         tablaComparar.add_row([experimentosComparar[i].nombre, promediosComparar[i], maximosComparar[i], minimosComparar[i]], divider=True) #linea de codigo que agrega los datos de cada experimento a la tabla en sus respectivas columnas
     print(tablaComparar) #muestra la tabla en la consola
     print("")
-    
+
 
 # 6. Funcion para generar reporte con un archivo txt
 def generarReporte(listaExperimentos):
+    """
+    Funcion para generar un reporte de los experimentos registrados, en un archivo txt llamado "informeExperimentos.txt".
+    La funcion recibe como parametro una lista de experimentos, y escribe en el archivo los detalles de cada experimento, como su nombre, fecha, categoria y resultados.
+    El reporte se escribe en el archivo "informeExperimentos.txt" y se muestra un mensaje de confirmacion al usuario de que el reporte se genero correctamente.
+    """
     print(" ------ GENERAR REPORTE ------")
     if not listaExperimentos:
         print("No hay experimentos registrados.")
         print("")
         return
-    
+
     #abrir un archivo txt
     with open("informeExperimentos.txt", "w") as archivo: #linea de codigo que abre el archivo "informeExperimentos.txt" en modo escritura
         for experimento in listaExperimentos:
@@ -159,26 +185,26 @@ def generarReporte(listaExperimentos):
             archivo.write(f"Fecha Ingresada: {experimento.fecha.strftime('%d/%m/%Y')}\n") # se escribe en el archivo la fecha del experimento
             archivo.write(f"Categoria: {experimento.categoria}\n") # se escribe en el archivo la categoria del experimento
             archivo.write(f"Datos: {experimento.resultados}\n") # se escribe en el archivo los resultados del experimento
-            archivo.write(f"Promedio: {statistics.mean(experimento.resultados)}\n") # se escribe en el archivo el promedio del experimento
-            archivo.write(f"Maximo: {max(experimento.resultados)}\n") # se escribe en el archivo el valor maximo del experimento
-            archivo.write(f"Minimo: {min(experimento.resultados)}\n") # se escribe en el archivo el valor minimo del experimento
-            archivo.write("Conclusion: ") # se escribe en el archivo la conclusion del experimento
+            archivo.write(f"Promedio de los datos ingresados: {statistics.mean(experimento.resultados)}\n") # se escribe en el archivo el promedio del experimento
+            archivo.write(f"Valor Maximo de los datos ingresados: {max(experimento.resultados)}\n") # se escribe en el archivo el valor maximo del experimento
+            archivo.write(f"Valor Minimo de los datos ingresados: {min(experimento.resultados)}\n") # se escribe en el archivo el valor minimo del experimento
             archivo.write("\n") # se escribe en el archivo un espacio en blanco
-    
+
     print("Reporte generado exitosamente, como 'informeExperimentos.txt'.")#mensaje de confirmacion de que el reporte se genero correctamente
     print("")
 
 # 7. Funcion para menu principal
 def menuPrincipal():
-    listaExperimentos = [ # Variable de tipo lista que almacena experimentos
-        Experimento("Experimento 1", datetime(2023, 10, 1), "Fisica", [10, 20, 30]),
-        Experimento("Experimento 2", datetime(2023, 10, 2), "Quimica", [15, 25, 35]),
-        Experimento("Experimento 3", datetime(2023, 10, 3), "Biologia", [12, 22, 32]),
-        Experimento("Experimento 4", datetime(2023, 10, 4), "Matematicas", [18, 28, 38])
-    ]
-    
+    """
+    Funcion que muestra el menu principal del programa, y permite al usuario elegir una opcion para gestionar experimentos, analizar datos o generar un reporte.
+    La funcion es un bucle que se repite hasta que el usuario elija la opcion de salir del programa.
+    En cada repeticion del bucle, se muestra el menu principal y se pide al usuario que elija una opcion.
+    Segun la opcion elegida, se muestra un sub-menu o se ejecuta una funcion.
+    """
+    listaExperimentos = [] # Variable de tipo lista que almacena experimentos
+
     while True: #bucle para repetir el menu principal
-    
+
         try:
             print(" ------ MENU DE INVESTIGACION CIENTIFICA ------")
             print("1. GESTION DE EXPERIMENTOS")
@@ -257,13 +283,3 @@ def menuPrincipal():
 
 if __name__ == "__main__": # linea de codigo que ejecuta la funcion principal
     menuPrincipal()
-
-
-
-
-
-
-
-
-
-
