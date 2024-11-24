@@ -13,6 +13,7 @@ This repository is to track the fulfillment of challenge #1 of the devSenior pyt
 10. Pendiente ajuste y mejoramiento del codigo. / Pending to adjust and improve the code.
 11. Arreglo de error en la función registrar experimento. / Bug fix in register experiment function.
 12. Validación de cantidad dedatos en la función registrar experimento para su posterior analisis. / Data validation in the register experiment function for its subsequent analysis.
-13. se realiza validación en la función de comparar para que el usuario ingrese mínimo 2 experimentos para comparar y en la función generar reporte, arreglo de datos / Validation is carried out in the compare function so that the user enters at least 2 experiments to compare and in the generate report, data arrangement function.
+13. Se realiza validación en la función de comparar para que el usuario ingrese mínimo 2 experimentos para comparar y en la función generar reporte, arreglo de datos / Validation is carried out in the compare function so that the user enters at least 2 experiments to compare and in the generate report, data arrangement function.
+14. Se incluyen los análisis de cada experimento en la funcione generar reporte / The analyzes of each experiment are included in the generate report function. 
 
 

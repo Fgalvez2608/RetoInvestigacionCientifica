@@ -159,6 +159,10 @@ def generarReporte(listaExperimentos):
             archivo.write(f"Fecha Ingresada: {experimento.fecha.strftime('%d/%m/%Y')}\n") # se escribe en el archivo la fecha del experimento
             archivo.write(f"Categoria: {experimento.categoria}\n") # se escribe en el archivo la categoria del experimento
             archivo.write(f"Datos: {experimento.resultados}\n") # se escribe en el archivo los resultados del experimento
+            archivo.write(f"Promedio: {statistics.mean(experimento.resultados)}\n") # se escribe en el archivo el promedio del experimento
+            archivo.write(f"Maximo: {max(experimento.resultados)}\n") # se escribe en el archivo el valor maximo del experimento
+            archivo.write(f"Minimo: {min(experimento.resultados)}\n") # se escribe en el archivo el valor minimo del experimento
+            archivo.write("Conclusion: ") # se escribe en el archivo la conclusion del experimento
             archivo.write("\n") # se escribe en el archivo un espacio en blanco
     
     print("Reporte generado exitosamente, como 'informeExperimentos.txt'.")#mensaje de confirmacion de que el reporte se genero correctamente
