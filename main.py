@@ -212,81 +212,80 @@ def menuPrincipal():
 
     while True: #bucle para repetir el menu principal
 
-        try:
-            print(" ------ MENU DE INVESTIGACION CIENTIFICA ------")
-            print("1. GESTION DE EXPERIMENTOS")
-            print("2. ANALISIS DE DATOS")
-            print("3. GENERAR INFORME")
-            print("4. CERRAR EL PROGRAMA")
-            print("")
 
-            opcionMenuPrincipal = input("Seleccione una opcion: ")#Variable que almacena la opcion que elija el usuario en el menu principal
+        print(" ------ MENU DE INVESTIGACION CIENTIFICA ------")
+        print("1. GESTION DE EXPERIMENTOS")
+        print("2. ANALISIS DE DATOS")
+        print("3. GENERAR INFORME")
+        print("4. CERRAR EL PROGRAMA")
+        print("")
 
-            if opcionMenuPrincipal == "1":
-                
-                while True: #bucle para repetir el menu de gestion de experimentos
-                    
-                    try:
-                        print(" ------ GESTION DE EXPERIMENTOS ------")
-                        print("1. REGISTRAR EXPERIMENTO")
-                        print("2. VISUALIZAR EXPERIMENTOS")
-                        print("3. ELIMINAR EXPERIMENTO")
-                        print("4. RETORNO AL MENU PRINCIPAL")
-                        print("")
+        opcionMenuPrincipal = input("Seleccione una opcion: ")#Variable que almacena la opcion que elija el usuario en el menu principal
 
-                        opcionMenuExperimento = input("Seleccione una opcion: ") #Variable que almacena la opcion que elija el usuario en el menu de gestion de experimentos
-
-                        if opcionMenuExperimento == "1":
-                            agregarExperimento(listaExperimentos)
-                        elif opcionMenuExperimento == "2":
-                            visualizarResultados(listaExperimentos)
-                        elif opcionMenuExperimento == "3":  
-                            eliminarExperimento(listaExperimentos)
-                        elif opcionMenuExperimento == "4":
-                            print("SALIENDO DEL MENU DE GESTION DE EXPERIMENTOS...")
-                            print("")
-                            break
-                        else:
-                            print("OPCION NO VALIDA")
-                            print("POR FAVOR ELIJA UNA OPCION ENTRE 1 A 3")
-                            print("")
-                    except ValueError:
-                        print("ERROR: OPCION NO VALIDA")
-                        return
-
-            elif opcionMenuPrincipal == "2":
-                
-                while True: #bucle para repetir el menu de gestion de experimentos
-                    print(" ------ ANALIS DE DATOS ------")
-                    print("1. CALCULO ESTADISTICO BASICO")
-                    print("2. COMPARACION DE EXPERIMENTOS")
-                    print("3. RETORNO AL MENU PRINCIPAL")
+        if opcionMenuPrincipal == "1":
+            while True: #bucle para repetir el menu de gestion de experimentos
+                try:
+                    print(" ------ GESTION DE EXPERIMENTOS ------")
+                    print("1. REGISTRAR EXPERIMENTO")
+                    print("2. VISUALIZAR EXPERIMENTOS")
+                    print("3. ELIMINAR EXPERIMENTO")
+                    print("4. RETORNO AL MENU PRINCIPAL")
                     print("")
+                    
+                    opcionMenuExperimento = input("Seleccione una opcion: ") #Variable que almacena la opcion que elija el usuario en el menu de gestion de experimentos
 
-                    opcionMenuAnalisisDatos = input("Seleccione una opcion: ") #Variable que almacena la opcion que elija el usuario en el menu de gestion de experimentos
-
-                    if opcionMenuAnalisisDatos == "1":
-                        analisisResultados(listaExperimentos)
-                    elif opcionMenuAnalisisDatos == "2":
-                        compradorExperimentos(listaExperimentos)
-                    elif opcionMenuAnalisisDatos == "3":
-                        print("SALIENDO DEL MENU DE ANALISIS DE DATOS...")
+                    if opcionMenuExperimento == "1":
+                        agregarExperimento(listaExperimentos)
+                    elif opcionMenuExperimento == "2":
+                            visualizarResultados(listaExperimentos)
+                    elif opcionMenuExperimento == "3":  
+                        eliminarExperimento(listaExperimentos)
+                    elif opcionMenuExperimento == "4":
+                        print("SALIENDO DEL MENU DE GESTION DE EXPERIMENTOS...")
+                        print("")
                         break
                     else:
                         print("OPCION NO VALIDA")
-                        print("POR FAVOR ELIJA UNA OPCION ENTRE 1 A 4")
+                        print("POR FAVOR ELIJA UNA OPCION ENTRE 1 A 3")
                         print("")
+                except ValueError:
+                    print("ERROR: OPCION NO VALIDA")
+                    return
 
-            elif opcionMenuPrincipal == "3":
-                generarReporte(listaExperimentos)
-                
-            elif opcionMenuPrincipal == "4":
-                print("\nSALIENDO DEL PROGRAMA...")
-                break
+        elif opcionMenuPrincipal == "2":
+            while True: #bucle para repetir el menu de gestion de experimentos
+                print(" ------ ANALIS DE DATOS ------")
+                print("1. CALCULO ESTADISTICO BASICO")
+                print("2. COMPARACION DE EXPERIMENTOS")
+                print("3. RETORNO AL MENU PRINCIPAL")
+                print("")
 
-        except ValueError:
-            print("ERROR!!!")
-            return
+                opcionMenuAnalisisDatos = input("Seleccione una opcion: ") #Variable que almacena la opcion que elija el usuario en el menu de gestion de experimentos
+
+                if opcionMenuAnalisisDatos == "1":
+                    analisisResultados(listaExperimentos)
+                elif opcionMenuAnalisisDatos == "2":
+                    compradorExperimentos(listaExperimentos)
+                elif opcionMenuAnalisisDatos == "3":
+                    print("SALIENDO DEL MENU DE ANALISIS DE DATOS...")
+                    break
+                else:
+                    print("OPCION NO VALIDA")
+                    print("POR FAVOR ELIJA UNA OPCION ENTRE 1 A 4")
+                    print("")
+
+        elif opcionMenuPrincipal == "3":
+            generarReporte(listaExperimentos)
+
+        elif opcionMenuPrincipal == "4":
+            print("\nSALIENDO DEL PROGRAMA...")
+            break
+
+        else:
+            print("OPCION NO VALIDA")
+            print("POR FAVOR ELIJA UNA OPCION ENTRE 1 A 4")
+            print("")
+        print("")
 
 if __name__ == "__main__": # linea de codigo que ejecuta la funcion principal
     menuPrincipal()
