@@ -208,11 +208,7 @@ def menuPrincipal():
     En cada repeticion del bucle, se muestra el menu principal y se pide al usuario que elija una opcion.
     Segun la opcion elegida, se muestra un sub-menu o se ejecuta una funcion.
     """
-    listaExperimentos = [
-        Experimento("experimento1", datetime(2022, 1, 1), "Fisica", [1, 2, 3]),
-        Experimento("experimento2", datetime(2022, 1, 5), "Quimica", [4, 5, 6]),
-        Experimento("experimento3", datetime(2022, 1, 10), "Biologia", [7, 8, 9])
-    ] # Variable de tipo lista que almacena experimentos 
+    listaExperimentos = [] # Variable de tipo lista que almacena experimentos 
 
     while True: #bucle para repetir el menu principal
 
