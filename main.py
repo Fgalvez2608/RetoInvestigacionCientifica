@@ -140,17 +140,17 @@ def compradorExperimentos(listaExperimentos):
 
     experimentosComparar = [] #Variable que almacena los experimentos que desea comparar
     for i in range(cantidadExperimentos): #bucle para recorrer la cantidad de experimentos que desea comparar
-        experimento = input(f"Ingrese el nombre del experimento {i + 1}: ") #Variable que almacena el nombre del experimento que desea comparar
-        while experimento == "": #bucle para validar que el nombre del experimento no este vacio
+        experimento = input(f"Ingrese el nombre del experimento {i + 1}: ").lower() #Variable que almacena el nombre del experimento que desea comparar
+        while experimento == "": #bucle para validar que el nombre no este vacio
             print("El nombre del experimento no puede estar vacio.")#mensaje de error
-            experimento = input(f"Ingrese el nombre del experimento {i + 1}: ")
+            experimento = input(f"Ingrese el nombre del experimento {i + 1}: ").lower()
         for exp in listaExperimentos: #bucle para recorrer la lista experimentos
             if exp.nombre == experimento: #linea de codigo que verifica si el nombre del experimento que desea comparar es igual al nombre de un experimento registrado
                 experimentosComparar.append(exp) #linea de codigo que agrega el experimento a la lista experimentosComparar
                 break
-            else:
-                print("Experimento no encontrado.")
-                return
+        else:
+            print("Experimento no encontrado.")
+            return
     # se calcula el promedio, el valor maximo y el valor minimo de los datos de cada experimento
     promediosComparar = [] #Variable que almacena los promedios de los experimentos que desea comparar
     maximosComparar = [] #Variable que almacena los valores maximos de los experimentos que desea comparar
@@ -209,8 +209,9 @@ def menuPrincipal():
     Segun la opcion elegida, se muestra un sub-menu o se ejecuta una funcion.
     """
     listaExperimentos = [
-        Experimento("Experimento 1", datetime(2022, 1, 1), "Fisica", [1, 2, 3, 4, 5]),
-        Experimento("Experimento 2", datetime(2022, 1, 2), "Quimica", [6, 7, 8, 9, 10])
+        Experimento("experimento1", datetime(2022, 1, 1), "Fisica", [1, 2, 3]),
+        Experimento("experimento2", datetime(2022, 1, 5), "Quimica", [4, 5, 6]),
+        Experimento("experimento3", datetime(2022, 1, 10), "Biologia", [7, 8, 9])
     ] # Variable de tipo lista que almacena experimentos 
 
     while True: #bucle para repetir el menu principal
