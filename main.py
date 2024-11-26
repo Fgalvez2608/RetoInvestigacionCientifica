@@ -1,6 +1,6 @@
 from datetime import datetime # importar la libreria datetime para darle formato a las fechas
 import statistics # importar la libreria statistics para usar la funcion media
-from prettytable import PrettyTable # importar la libreria prettytable para trabajar con tablas
+from prettytable import PrettyTable # importar la libreria prettytable para trabajar con tablas 
 
 
 class Experimento:  #funcion de inicializacion o metodo constructor, para recibir toda la informacion que se quiera almacenar
@@ -11,7 +11,7 @@ class Experimento:  #funcion de inicializacion o metodo constructor, para recibi
         self.resultados = resultados
 
 # 1. Funcion para registrar experimento
-def registrarExperimento(listaExperimentos):
+def agregarExperimento(listaExperimentos):
     """
     Funcion para registrar un experimento en la lista de experimentos
     El usuario debe ingresar el nombre del experimento, la fecha del experimento, la categoria del experimento y los resultados del experimento
@@ -201,7 +201,7 @@ def menuPrincipal():
     En cada repeticion del bucle, se muestra el menu principal y se pide al usuario que elija una opcion.
     Segun la opcion elegida, se muestra un sub-menu o se ejecuta una funcion.
     """
-    listaExperimentos = [] # Variable de tipo lista que almacena experimentos
+    listaExperimentos = [] # Variable de tipo lista que almacena experimentos 
 
     while True: #bucle para repetir el menu principal
 
@@ -230,7 +230,7 @@ def menuPrincipal():
                         opcionMenuExperimento = input("Seleccione una opcion: ") #Variable que almacena la opcion que elija el usuario en el menu de gestion de experimentos
 
                         if opcionMenuExperimento == "1":
-                            registrarExperimento(listaExperimentos)
+                            agregarExperimento(listaExperimentos)
                         elif opcionMenuExperimento == "2":
                             visualizarResultados(listaExperimentos)
                         elif opcionMenuExperimento == "3":  
