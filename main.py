@@ -84,6 +84,8 @@ def eliminarExperimento(listaExperimentos):
     visualizarResultados(listaExperimentos)
     print("")
     nombre = input("Ingrese el nombre del experimento que desea eliminar: ").lower() #Variable que almacena el nombre del experimento que desea eliminar
+    while nombre == "": #bucle para validar que el nombre no este vacio
+        print("El nombre del experimento no puede estar vacio.")#mensaje de error
     for experimento in listaExperimentos: #bucle para recorrer la lista experimentos
         if experimento.nombre == nombre: #linea de codigo que verifica si el nombre del experimento que desea eliminar es igual al nombre de un experimento registrado
             listaExperimentos.remove(experimento) #linea de codigo que elimina el experimento de la lista experimentos
@@ -203,7 +205,10 @@ def menuPrincipal():
     En cada repeticion del bucle, se muestra el menu principal y se pide al usuario que elija una opcion.
     Segun la opcion elegida, se muestra un sub-menu o se ejecuta una funcion.
     """
-    listaExperimentos = [] # Variable de tipo lista que almacena experimentos 
+    listaExperimentos = [
+        Experimento("Experimento 1", datetime(2022, 1, 1), "Fisica", [1, 2, 3, 4, 5]),
+        Experimento("Experimento 2", datetime(2022, 1, 2), "Quimica", [6, 7, 8, 9, 10])
+    ] # Variable de tipo lista que almacena experimentos 
 
     while True: #bucle para repetir el menu principal
 
