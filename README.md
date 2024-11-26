@@ -15,6 +15,7 @@ This repository is to track the fulfillment of challenge #1 of the devSenior pyt
 12. Validación de cantidad dedatos en la función registrar experimento para su posterior analisis. / Data validation in the register experiment function for its subsequent analysis.
 13. Se realiza validación en la función de comparar para que el usuario ingrese mínimo 2 experimentos para comparar y en la función generar reporte, arreglo de datos / Validation is carried out in the compare function so that the user enters at least 2 experiments to compare and in the generate report, data arrangement function.
 14. Se incluyen los análisis de cada experimento en la funcione generar reporte / The analyzes of each experiment are included in the generate report function. 
-15. se añade comentarios a cada función explicando que hace y las característica que posee / Comments are added to each function explaining what it does and the characteristics it has.
+15. Se añade comentarios a cada función explicando que hace y las característica que posee / Comments are added to each function explaining what it does and the characteristics it has.
+16. Actualización función comprar, se incluye validación para que el nombre del experimento a comparar no este vacío. / update function comparator, validation is included so that the name of the experiment to be compared is not empty. 
 
 

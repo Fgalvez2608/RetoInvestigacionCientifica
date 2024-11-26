@@ -127,7 +127,7 @@ def compradorExperimentos(listaExperimentos):
     if not listaExperimentos:
         print("No hay experimentos registrados.")
         return
-    
+    print("Experimentos disponibles:")
     for experimento in listaExperimentos: #linea de codigo que recorre la lista experimentos e imprime el nombre de cada experimento
         print(f"{experimento.nombre}")
     cantidadExperimentos = int(input("Ingrese la cantidad de experimentos que desea comparar: ")) #Variable que almacena la cantidad de experimentos que desea comparar
@@ -141,6 +141,9 @@ def compradorExperimentos(listaExperimentos):
     experimentosComparar = [] #Variable que almacena los experimentos que desea comparar
     for i in range(cantidadExperimentos): #bucle para recorrer la cantidad de experimentos que desea comparar
         experimento = input(f"Ingrese el nombre del experimento {i + 1}: ") #Variable que almacena el nombre del experimento que desea comparar
+        while experimento == "": #bucle para validar que el nombre del experimento no este vacio
+            print("El nombre del experimento no puede estar vacio.")#mensaje de error
+            experimento = input(f"Ingrese el nombre del experimento {i + 1}: ")
         for exp in listaExperimentos: #bucle para recorrer la lista experimentos
             if exp.nombre == experimento: #linea de codigo que verifica si el nombre del experimento que desea comparar es igual al nombre de un experimento registrado
                 experimentosComparar.append(exp) #linea de codigo que agrega el experimento a la lista experimentosComparar
