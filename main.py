@@ -141,9 +141,9 @@ def compradorExperimentos(listaExperimentos):
             if exp.nombre == experimento: #linea de codigo que verifica si el nombre del experimento que desea comparar es igual al nombre de un experimento registrado
                 experimentosComparar.append(exp) #linea de codigo que agrega el experimento a la lista experimentosComparar
                 break
-        else:
-            print("Experimento no encontrado.")
-            return
+            else:
+                print("Experimento no encontrado.")
+                return
     # se calcula el promedio, el valor maximo y el valor minimo de los datos de cada experimento
     promediosComparar = [] #Variable que almacena los promedios de los experimentos que desea comparar
     maximosComparar = [] #Variable que almacena los valores maximos de los experimentos que desea comparar
